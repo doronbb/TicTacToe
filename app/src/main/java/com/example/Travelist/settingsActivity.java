@@ -21,7 +21,6 @@ public class settingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Intent returnIntent = new Intent(settingsActivity.this, mainActivity.class);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);

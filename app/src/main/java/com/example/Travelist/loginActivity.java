@@ -50,6 +50,7 @@ public class loginActivity extends AppCompatActivity {
 
             }
         });
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //if(!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty()){

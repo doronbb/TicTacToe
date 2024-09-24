@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,16 +15,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class mainActivity extends AppCompatActivity {
 
-    TextView txtvMessage;
-    Button btnReturn;
+    TextView tvMessage;
+
+    FloatingActionButton btnAdd;
     MenuItem Settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //Intent returnIntent = new Intent(mainActivity.this, loginActivity.class);
+        Intent addIntent = new Intent(mainActivity.this, addActivity.class);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -33,11 +37,21 @@ public class mainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtvMessage = findViewById(R.id.tvMessage);
-        txtvMessage.setText(R.string.hello);
 
+        tvMessage = findViewById(R.id.tvMessage);
+        tvMessage.setText(R.string.hello);
 
+        btnAdd = findViewById(R.id.btnAdd);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                mainActivity.this.startActivity(addIntent);
+
+            }
+        });
     }
+
 
 
 
