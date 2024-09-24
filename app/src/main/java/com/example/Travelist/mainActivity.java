@@ -27,6 +27,7 @@ public class mainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //addList
         Intent addIntent = new Intent(mainActivity.this, addActivity.class);
 
         super.onCreate(savedInstanceState);
