@@ -16,7 +16,7 @@
             android:name=".settingsActivity"
             android:exported="false" />
         <activity
-            android:name=".addListActivity"
+            android:name=".addActivity"
             android:exported="false" />
         <activity
             android:name=".registerActivity"

@@ -59,8 +59,18 @@ public class mainActivity extends AppCompatActivity {
         if(itemID == R.id.LogOut){
             LogOut();
         }
+        if(itemID == R.id.Main){
+            gotoMain();
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void gotoMain(){
+
+        Intent i;
+        i = new Intent(this, mainActivity.class);
+        this.startActivity(i);
     }
 
     private void openSettings(){
