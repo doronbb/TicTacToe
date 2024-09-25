@@ -27,7 +27,7 @@ public class mainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         //addList check
-        Intent addIntent = new Intent(mainActivity.this, addActivity.class);
+        Intent addIntent = new Intent(mainActivity.this, hostActivity.class);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -41,7 +41,7 @@ public class mainActivity extends AppCompatActivity {
         tvMessage = findViewById(R.id.tvMessage);
         tvMessage.setText(R.string.hello);
 
-        btnAdd = findViewById(R.id.btnAdd);
+        btnAdd = findViewById(R.id.btnHost);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
