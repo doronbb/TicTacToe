@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.Travelist"
+    namespace = "com.example.TicTacToe"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.Travelist"
+        applicationId = "com.example.TicTacToe"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

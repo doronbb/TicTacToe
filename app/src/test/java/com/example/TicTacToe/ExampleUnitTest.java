@@ -1,4 +1,4 @@
-package com.example.Travelist;
+package com.example.TicTacToe;
 
 import org.junit.Test;
 

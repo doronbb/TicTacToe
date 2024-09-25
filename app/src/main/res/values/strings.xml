@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Travelist</string>
+    <string name="app_name">TicTacToe</string>
     <string name="hello">Welcome Back, </string>
 </resources>
