@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -15,11 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class settingsActivity extends AppCompatActivity {
 
-    Button btnReturnS;
+    Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        Intent saveExit = new Intent(settingsActivity.this, mainActivity.class);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -30,6 +32,14 @@ public class settingsActivity extends AppCompatActivity {
             return insets;
         });
 
+        btnSave = findViewById(R.id.btnSave);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                settingsActivity.this.startActivity(saveExit);
+            }
+        });
 
     }
 

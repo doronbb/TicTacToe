@@ -13,8 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class mainActivity extends AppCompatActivity {
 
@@ -37,6 +42,19 @@ public class mainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ArrayList<Game> games = new ArrayList<>();
+        for (int i = 1; i < 11; i++)
+        {
+            games.add(new Game("Game "+ i, "Host: "));
+        }
+        RecyclerView recyclerView = findViewById(R.id.rvGames);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        GameAdapter gameAdapter = new GameAdapter(games);
+        recyclerView.setAdapter(gameAdapter);
+
 
         tvMessage = findViewById(R.id.tvMessage);
         tvMessage.setText(R.string.hello);

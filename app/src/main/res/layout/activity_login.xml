@@ -16,10 +16,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.415" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+        app:layout_constraintVertical_bias="0.182" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -31,10 +31,10 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -43,22 +43,10 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-    <TextView
-        android:id="@+id/tvHeader"
-        android:layout_width="102dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="100dp"
-        android:text="Travelist"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintVertical_bias="0.481" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -70,5 +58,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.43" />
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="163dp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -12,10 +13,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class hostActivity extends AppCompatActivity {
+
+    FloatingActionButton fabCreateGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent createGame = new Intent(hostActivity.this, gameActivity.class);
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_host);
@@ -24,6 +32,16 @@ public class hostActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        fabCreateGame = findViewById(R.id.fabCreateGame);
+
+        fabCreateGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hostActivity.this.startActivity(createGame);
+            }
+        });
+
     }
 
     @Override
