@@ -1,5 +1,8 @@
 package com.example.TicTacToe;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,11 +20,13 @@ import androidx.core.view.WindowInsetsCompat;
 public class settingsActivity extends AppCompatActivity {
 
     Button btnSave;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent saveExit = new Intent(settingsActivity.this, mainActivity.class);
+        builder = new AlertDialog.Builder(this);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -37,9 +42,29 @@ public class settingsActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                settingsActivity.this.startActivity(saveExit);
+                builder.setTitle("Confirm Changes")
+                        .setMessage("Are you sure?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                settingsActivity.this.startActivity(saveExit);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .show();
+
             }
         });
+
+
+
+
 
     }
 

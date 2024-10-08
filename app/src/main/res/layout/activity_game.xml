@@ -43,32 +43,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <TableLayout
-        android:layout_width="408dp"
-        android:layout_height="464dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvHostNameG"
-        app:layout_constraintTop_toBottomOf="@+id/PlayerNameG"
-        tools:layout_editor_absoluteX="1dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableRow>
-
-    </TableLayout>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
@@ -79,5 +53,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/stat_notify_chat" />
+
+    <ImageView
+        android:id="@+id/ivExample"
+        android:layout_width="402dp"
+        android:layout_height="433dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvHostNameG"
+        app:layout_constraintTop_toBottomOf="@+id/PlayerNameG"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/ultimatettt_foreground"
+        tools:layout_editor_absoluteX="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
