@@ -18,12 +18,15 @@ public class loginActivity extends AppCompatActivity {
     EditText etPassword;
     Button btnLogin;
     Button btnRegister;
+    private InputValidator validator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent logintent = new Intent(loginActivity.this, mainActivity.class);
         Intent regintent = new Intent(loginActivity.this, registerActivity.class);
+
+        validator = new InputValidator();
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -35,7 +38,6 @@ public class loginActivity extends AppCompatActivity {
         });
 
 
-
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -43,21 +45,24 @@ public class loginActivity extends AppCompatActivity {
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //if(!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty()){
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+
+                if (!validator.isValidEmail(email)) {
+                    etEmail.setError("This email is not valid");
+                }
+                else if (!validator.isValidPassword(password)) {
+                    etPassword.setError("Password must contain at least 6 letters");
+                }
+                else {
                     loginActivity.this.startActivity(logintent);
-                //}
-
-
+                }
             }
         });
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //if(!etEmail.getText().toString().isEmpty() && !etPassword.getText().toString().isEmpty()){
                 loginActivity.this.startActivity(regintent);
-                //}
-
-
             }
         });
 

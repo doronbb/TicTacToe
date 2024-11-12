@@ -18,11 +18,7 @@ import java.util.ArrayList;
 
 public class gameActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
-    private final ArrayList<int[]> combinationList = new ArrayList<>();
-    private int[] boxPositions = {0,0,0,0,0,0,0,0,0}; //9 zero's
-    private int playerTurn = 1;
-    private int totalSelectedBoxes = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
