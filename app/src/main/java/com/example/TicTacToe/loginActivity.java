@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class loginActivity extends AppCompatActivity {
 
     EditText etEmail;
@@ -19,6 +21,8 @@ public class loginActivity extends AppCompatActivity {
     Button btnLogin;
     Button btnRegister;
     private InputValidator validator;
+    private fbController auth = new fbController(loginActivity.this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,11 @@ public class loginActivity extends AppCompatActivity {
         Intent regintent = new Intent(loginActivity.this, registerActivity.class);
 
         validator = new InputValidator();
+
+        if(auth.isLoggedIn())
+        {
+            startActivity(logintent);
+        }
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -48,18 +57,17 @@ public class loginActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (!validator.isValidEmail(email)) {
+                if (email.length() == 0) {
                     etEmail.setError("This email is not valid");
                 }
-                else if (!validator.isValidPassword(password)) {
+                else if (password.length() == 0) {
                     etPassword.setError("Password must contain at least 6 letters");
                 }
                 else {
-                    loginActivity.this.startActivity(logintent);
+                    auth.LoginUser(email,password);
                 }
             }
         });
-
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 loginActivity.this.startActivity(regintent);

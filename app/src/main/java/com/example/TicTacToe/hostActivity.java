@@ -19,6 +19,9 @@ public class hostActivity extends AppCompatActivity {
 
     FloatingActionButton fabCreateGame;
 
+    fbController auth = new fbController(hostActivity.this);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,7 +63,7 @@ public class hostActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            LogOut();
+            auth.LogOutUser();
         }
         if(itemID == R.id.Main){
             gotoMain();

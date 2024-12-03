@@ -1,7 +1,6 @@
 package com.example.TicTacToe;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +20,8 @@ public class settingsActivity extends AppCompatActivity {
 
     Button btnSave;
     AlertDialog.Builder builder;
+    fbController auth = new fbController(settingsActivity.this);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class settingsActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            LogOut();
+            auth.LogOutUser();
         }
         if(itemID == R.id.Main){
             gotoMain();
@@ -92,7 +93,6 @@ public class settingsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
     private void gotoMain(){
 
         Intent i;

@@ -1,13 +1,10 @@
 package com.example.TicTacToe;
 
-import static com.example.TicTacToe.fBaseAuth.CreateUser;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,18 +12,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import javax.xml.validation.Validator;
 
 public class registerActivity extends AppCompatActivity {
 
     Button btnLoginA;
     Button btnRegisterM;
     private InputValidator validator;
-    private fBaseAuth CreateUser;
+    private FirebaseAuth auth;
+    private fbController CreateUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +53,7 @@ public class registerActivity extends AppCompatActivity {
         EditText etEmail = findViewById(R.id.etEmailR);
         EditText etPassword = findViewById(R.id.etPasswordR);
         EditText etPassword2 = findViewById(R.id.etPasswordR2);
-        CreateUser = new fBaseAuth();
-
+        CreateUser = new fbController(registerActivity.this);
 
 
         btnRegisterM.setOnClickListener(new View.OnClickListener() {
@@ -80,13 +73,11 @@ public class registerActivity extends AppCompatActivity {
                     etPassword2.setError("Passwords must be identical");
                 }
                 else {
-                    CreateUser(email, password,registerActivity.this);
+                    User user = new User(email);
+                    CreateUser.CreateUser(email, password,user);
                 }
             }
         });
-
-
-
 
     }
 }

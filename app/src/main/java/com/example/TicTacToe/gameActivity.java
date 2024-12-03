@@ -1,6 +1,5 @@
 package com.example.TicTacToe;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,11 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.TicTacToe.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
-
 public class gameActivity extends AppCompatActivity {
+
+    fbController auth = new fbController(gameActivity.this);
 
 
 
@@ -48,7 +45,7 @@ public class gameActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            LogOut();
+            auth.LogOutUser();
         }
         if(itemID == R.id.Main){
             gotoMain();

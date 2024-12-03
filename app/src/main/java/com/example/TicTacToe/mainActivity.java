@@ -27,6 +27,7 @@ public class mainActivity extends AppCompatActivity {
 
     FloatingActionButton btnAdd;
     MenuItem Settings;
+    fbController auth = new fbController(mainActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +90,7 @@ public class mainActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            LogOut();
+            auth.LogOutUser();
         }
         if(itemID == R.id.Main){
             gotoMain();
@@ -118,4 +119,6 @@ public class mainActivity extends AppCompatActivity {
         i = new Intent(this, loginActivity.class);
         this.startActivity(i);
     }
+
+
 }
