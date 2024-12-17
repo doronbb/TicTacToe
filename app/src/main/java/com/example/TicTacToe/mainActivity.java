@@ -119,6 +119,4 @@ public class mainActivity extends AppCompatActivity {
         i = new Intent(this, loginActivity.class);
         this.startActivity(i);
     }
-
-
 }

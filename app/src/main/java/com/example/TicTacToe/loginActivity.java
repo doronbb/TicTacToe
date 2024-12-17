@@ -22,6 +22,7 @@ public class loginActivity extends AppCompatActivity {
     Button btnRegister;
     private InputValidator validator;
     private fbController auth = new fbController(loginActivity.this);
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -30,6 +31,7 @@ public class loginActivity extends AppCompatActivity {
         Intent logintent = new Intent(loginActivity.this, mainActivity.class);
         Intent regintent = new Intent(loginActivity.this, registerActivity.class);
 
+        mAuth = FirebaseAuth.getInstance();
         validator = new InputValidator();
 
         if(auth.isLoggedIn())
@@ -65,9 +67,11 @@ public class loginActivity extends AppCompatActivity {
                 }
                 else {
                     auth.LoginUser(email,password);
+                    startActivity(logintent);
                 }
             }
         });
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 loginActivity.this.startActivity(regintent);

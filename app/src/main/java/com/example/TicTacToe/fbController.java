@@ -1,10 +1,8 @@
 package com.example.TicTacToe;
 import static androidx.core.content.ContextCompat.startActivity;
 
-
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,11 +10,8 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class fbController {
     public static FirebaseAuth mAuth;
@@ -44,6 +39,9 @@ public class fbController {
     public void setDb(FirebaseDatabase db) {
         this.db = db;
     }
+
+
+
 
 
     public fbController(Context context)
@@ -88,7 +86,7 @@ public class fbController {
                         if (task.isSuccessful()) {
                             Toast.makeText(context.getApplicationContext(),"Authentication Successful",Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
-                            context.startActivity(new Intent(context.getApplicationContext(), mainActivity.class));
+
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -100,33 +98,12 @@ public class fbController {
 
     public void LogOutUser()
     {
-        this.mAuth.signOut();
+        mAuth.signOut();
         startActivity(context,new Intent(context,loginActivity.class), null);
     }
 
     public boolean isLoggedIn()
     {
         return getAuth().getCurrentUser() != null;
-    }
-
-    public void readData(IFirebaseCallback firebaseCallback)
-    {
-        // Read from the database
-        getDbRef("users").child(getAuth().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                User user = dataSnapshot.getValue(User.class);
-                Log.d("Doron", user.getEmail());
-                
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
     }
 }

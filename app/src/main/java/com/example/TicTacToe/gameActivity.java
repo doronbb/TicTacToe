@@ -13,8 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class gameActivity extends AppCompatActivity {
 
-    fbController auth = new fbController(gameActivity.this);
-
+    fbController authHelper;
 
 
     @Override
@@ -45,7 +44,7 @@ public class gameActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            auth.LogOutUser();
+            LogOut();
         }
         if(itemID == R.id.Main){
             gotoMain();

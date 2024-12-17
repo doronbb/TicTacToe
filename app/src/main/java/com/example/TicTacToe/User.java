@@ -3,7 +3,6 @@ package com.example.TicTacToe;
 public class User
 {
     private String email;
-    private String uid;
 
     public String getUid() {
         return uid;
@@ -12,6 +11,8 @@ public class User
     public void setUid(String uid) {
         this.uid = uid;
     }
+
+    private String uid;
 
     // Constructor to initialize the user object
     public User(String email) {
@@ -26,5 +27,6 @@ public class User
     public void setEmail(String email) {
         this.email = email;
     }
+
 
 }

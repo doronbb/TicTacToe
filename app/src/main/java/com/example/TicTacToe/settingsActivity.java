@@ -20,8 +20,7 @@ public class settingsActivity extends AppCompatActivity {
 
     Button btnSave;
     AlertDialog.Builder builder;
-    fbController auth = new fbController(settingsActivity.this);
-
+    fbController authHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +84,7 @@ public class settingsActivity extends AppCompatActivity {
             openSettings();
         }
         if(itemID == R.id.LogOut){
-            auth.LogOutUser();
+            LogOut();
         }
         if(itemID == R.id.Main){
             gotoMain();
@@ -93,6 +92,7 @@ public class settingsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     private void gotoMain(){
 
         Intent i;
