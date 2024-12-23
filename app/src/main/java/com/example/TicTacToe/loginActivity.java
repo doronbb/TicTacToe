@@ -59,10 +59,10 @@ public class loginActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if (email.length() == 0) {
+                if (email.isEmpty()) {
                     etEmail.setError("This email is not valid");
                 }
-                else if (password.length() == 0) {
+                else if (password.isEmpty()) {
                     etPassword.setError("Password must contain at least 6 letters");
                 }
                 else {
