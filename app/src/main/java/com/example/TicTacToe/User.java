@@ -30,12 +30,10 @@ public class User
         int index = email.indexOf('@');
         this.name = email.substring(0,index);
     }
-    public void UpdateUser(String email)
+    public void UpdateUser()
     {
-        this.email = email;
         int index = email.indexOf('@');
         this.name = email.substring(0,index);
-
     }
 
     // Getters and setters for user attributes

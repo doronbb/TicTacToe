@@ -67,7 +67,6 @@ public class loginActivity extends AppCompatActivity {
                 }
                 else {
                     auth.LoginUser(email,password);
-                    startActivity(logintent);
                 }
             }
         });

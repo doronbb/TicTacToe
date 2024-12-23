@@ -58,7 +58,6 @@ public class mainActivity extends AppCompatActivity {
 
 
         tvMessage = findViewById(R.id.tvMessage);
-        tvMessage.setText(R.string.hello);
 
         btnAdd = findViewById(R.id.btnHost);
 
@@ -70,6 +69,8 @@ public class mainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 

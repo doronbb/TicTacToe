@@ -86,7 +86,7 @@ public class fbController {
                         if (task.isSuccessful()) {
                             Toast.makeText(context.getApplicationContext(),"Authentication Successful",Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            startActivity(context,new Intent(context,mainActivity.class), null);
 
                         } else {
                             // If sign in fails, display a message to the user.
