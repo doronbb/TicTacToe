@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -16,7 +17,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class settingsActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class settingsActivity extends AppCompatActivity implements IFirebaseCallback {
 
     Button btnSave;
     AlertDialog.Builder builder;
@@ -112,5 +115,16 @@ public class settingsActivity extends AppCompatActivity {
         Intent i;
         i = new Intent(this, loginActivity.class);
         this.startActivity(i);
+    }
+
+    @Override
+    public void onCallbackUser(User user) {
+        EditText email = findViewById(R.id.etEmailU);
+        email.setHint(user.getEmail());
+    }
+
+    @Override
+    public void onCallbackListUsers(ArrayList<User> users) {
+
     }
 }

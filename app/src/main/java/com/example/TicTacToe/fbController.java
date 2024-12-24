@@ -10,8 +10,11 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class fbController {
     public static FirebaseAuth mAuth;
@@ -40,8 +43,22 @@ public class fbController {
         this.db = db;
     }
 
+    public void getData(IFirebaseCallback fbcallback)
+    {
+        DatabaseReference editUserRef = FirebaseDatabase.getInstance().getReference("users/123");
+        editUserRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot userSnapshot)    {
+                User currentUser = userSnapshot.getValue(User.class);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+
+    }
 
 
     public fbController(Context context)

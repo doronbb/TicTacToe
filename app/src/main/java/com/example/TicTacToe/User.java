@@ -4,6 +4,8 @@ public class User
 {
     private String email;
     private String name;
+    private String uid;
+
 
     public User() {
         // Default constructor for Firebase
@@ -22,7 +24,6 @@ public class User
         this.uid = uid;
     }
 
-    private String uid;
 
     // Constructor to initialize the user object
     public User(String email) {

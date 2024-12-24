@@ -41,13 +41,13 @@
         app:layout_constraintTop_toBottomOf="@+id/etPasswordU" />
 
     <EditText
-        android:id="@+id/etUsernameU"
+        android:id="@+id/etEmailU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Username"
+        android:text="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSettings" />
@@ -62,7 +62,7 @@
         android:text="*********"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsernameU" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailU" />
 
     <Button
         android:id="@+id/btnSave"
